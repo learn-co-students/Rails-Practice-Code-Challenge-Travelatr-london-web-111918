@@ -1,0 +1,4 @@
+<h2><%=@destination.name%>, <%=@destination.country%></h2>
+<p>The average age of bloggers visiting this destination is <%=@destination.av_age%>.</p>
+<p>Featured post: <%if @destination.max_likes_destination == "This destination doesn't have any likes yet."%><%="No featured post...yet!"%><%else%><%=link_to @destination.max_likes_destination, post_path(@destination.max_likes_destination)%><%end%></p>
+<p><%=link_to 'Go back to All Bloggers!', bloggers_path%></p>

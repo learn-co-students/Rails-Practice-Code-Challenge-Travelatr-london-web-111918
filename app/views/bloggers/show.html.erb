@@ -1,0 +1,5 @@
+<h2><%=@blogger.name%>, <%=@blogger.age%></h2>
+<p><%=@blogger.bio%></p>
+<p>This blogger has <%=@blogger.sum_likes%> likes!</p>
+<p>Featured post: <%if @blogger.max_likes == "This blogger doesn't have any likes yet."%><%="No featured post...yet!"%><%else%><%=link_to @blogger.max_likes, post_path(@blogger.max_likes)%><%end%></p>
+<p><%=link_to 'Go back to All Bloggers!', bloggers_path%></p>
