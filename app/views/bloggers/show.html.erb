@@ -1,0 +1,20 @@
+<h2> <%= @blogger.name %> </h2>
+<p> Total Likes: <%= @total_likes %></p>
+<p> Bio: <%= @blogger.bio %> </p>
+<% if @top_post != nil %>
+  <p> Featured Post:<br> <li><%= link_to @top_post.title, post_path(@top_post) %></li></p>
+  <% if @top_5_destinations != nil %>
+  <p> All Posts by this Blogger: <br>
+  <% @all_posts.each do |post| %>
+  <li><%= link_to post.title, post %> - Likes: <%= post.likes %> - Added on: <%= post.created_at.to_s[0..9] %></li><br>
+  <% end %>
+  <p> Top 5 Destinations:<br>
+    <% @top_5_destinations.each do |destination| %>
+    <%= link_to "#{destination.name}, #{destination.country}", destination_path(destination) %><br>
+    <% end %><br>
+    <br>
+    <% end %>
+<% else %>
+<p> This blogger hasn't written any posts yet! </p>
+<% end %>
+<%= link_to "All Bloggers", bloggers_path %>

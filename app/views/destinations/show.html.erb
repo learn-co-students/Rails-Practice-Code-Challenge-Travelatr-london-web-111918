@@ -1,0 +1,18 @@
+<h2> <%= "#{@destination.name}, #{@destination.country}" %> </h2>
+<% if @top_5_posts != [] %>
+  <p>Recent Posts:
+  <br><br>
+  <% @top_5_posts.each do |post| %>
+  <%= post.title %>
+  <br><br>
+  <%= post.content %>
+  <br><br>
+  <% end %>
+  </p>
+  <p>Featured Post:<br><br>
+  <%= link_to @top_post.title, post_path(@top_post) %></p>
+  <p>Average age of Post Authors: <%= @average_age %><br><br>
+<% else %>
+  <p> No one has blogged about this destination yet! </p>
+<% end %>
+<%= link_to "All Destinations", destinations_path %>

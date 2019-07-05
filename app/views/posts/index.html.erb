@@ -1,0 +1,8 @@
+<h2> All Posts </h2>
+<% @posts.each do |post| %>
+  <%= link_to post.title, post %><br>
+<% end %>
+<br>
+<%= link_to "Create a new Post", new_post_path %><br><br>
+<%= link_to "See all Bloggers", bloggers_path %><br>
+<%= link_to "See all Destinations", destinations_path %>
